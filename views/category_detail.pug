@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h2= category.name
+
+  if category.description
+    p= category.description
+
+  h3 Items in this category
+  if items.length
+    ul
+      each item in items
+        li
+          a(href=`/items/${item.id}`)= `${item.name} (${item.stock} in stock)`
+  else
+    p No items in this category.
+
+  hr
+
+  a.button(href=`/categories/${category.id}/update`) Edit Category
+  a.button(href=`/categories/${category.id}/delete`) Delete Category

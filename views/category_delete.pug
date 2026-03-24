@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h2 Delete Category
+  p Are you sure you want to delete "#{category.name}"?
+
+  if error
+    p(style="color:red")= error
+
+  if items.length
+    p This category cannot be deleted because it still contains items:
+    ul
+      each item in items
+        li= item.name
+    p Remove or reassign these items first.
+  else
+    form(method="POST")
+      button(type="submit") Confirm Delete

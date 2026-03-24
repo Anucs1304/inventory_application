@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h2 Categories
+  a.button(href="/categories/create") New Category
+  ul
+    each category in category_list
+      li
+        a(href=`/categories/${category.id}`)= category.name

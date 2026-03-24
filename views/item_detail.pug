@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h2= item.name
+
+  p
+    strong Category:
+    |  #{item.category_name}
+
+  if item.description
+    p
+      strong Description:
+      |  #{item.description}
+
+  p
+    strong Price:
+    |  $#{item.price}
+
+  p
+    strong Stock:
+    |  #{item.stock}
+
+  hr
+
+  a.button(href=`/items/${item.id}/update`) Edit Item
+  a.button(href=`/items/${item.id}/delete`) Delete Item
